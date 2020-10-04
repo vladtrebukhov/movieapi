@@ -101,15 +101,7 @@ class App extends Component {
                         </tr>
                     </thead> : null}
                 <tbody>
-                {this.state.movies.map(({id, title, release_date, popularity, vote_average, overview, poster_path}) => {
-                    return <Movie key={id}
-                                  title={title}
-                                  id={id}
-                                  release_date={release_date}
-                                  popularity={popularity}
-                                  average_rating={vote_average}
-                                  overview={overview} poster={poster_path}/>
-                })}
+                {this.state.movies.map((movie) => {return <Movie key={movie.id} movieData={movie}/>})}
                 {this.state.movies.length ? null : <tr><td className="notFound">{noMoviesFoundMessage}</td></tr>}
                 </tbody>
             </Table>
