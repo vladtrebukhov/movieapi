@@ -9,7 +9,7 @@ export default function Movie(props) {
         <tr>
             <td>{id}</td>
             <td>
-                {poster_path ?  <img id="poster" src={posterSrc}/> : "No image found"}
+                {poster_path ?  <img id="poster" src={posterSrc} alt="Movie poster"/> : "No image found"}
             </td>
             <td>{title}</td>
             <td>{release_date}</td>

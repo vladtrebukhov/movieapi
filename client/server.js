@@ -12,11 +12,12 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 const getData = async (url, res) => {
     const fetch_response = await fetch(url);
-    const json = await fetch_response.json();
-    try {
+
+    if (fetch_response.status !== 200) {
+        throw new Error(`An error has occured: ${fetch_response.status}`);
+    } else {
+        const json = await fetch_response.json();
         res.send(json);
-    } catch(error) {
-        throw new Error(json.message);
     }
 };
 
